@@ -1,0 +1,13 @@
+{
+  "id": "o10",
+  "slug": "bill-reconciler",
+  "name": "微信 / 支付宝账单对账",
+  "version": "0.1.0",
+  "repo": "campfire-code/bill-reconciler",
+  "license": "MIT",
+  "ui": {
+    "layout": "f",
+    "palette": "violet"
+  },
+  "upstream": null
+}
