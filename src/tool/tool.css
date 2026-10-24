@@ -1,0 +1,52 @@
+/* 微信 / 支付宝账单对账：布局 c（向导步骤 + 大卡片）。只用 kit.css 的变量，类名以 bl- 开头。
+   焦点：每份账单的支出、收入大字，以及按日支出柱状图。 */
+
+/* ---- 空状态 ---- */
+.bl-empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 8px 4px 4px; text-align: center; }
+.bl-empty > svg { width: 100%; max-width: 640px; height: auto; }
+.bl-card { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.4; }
+.bl-card.hot { stroke: var(--primary); }
+.bl-top.wx { fill: var(--ok-soft); }
+.bl-top.ali, .bl-top.hot { fill: var(--primary-soft); }
+.bl-tt { font-size: 11px; font-weight: 700; fill: var(--ink); font-family: var(--font); }
+.bl-ln { fill: var(--line-strong); opacity: .8; }
+.bl-arrow { fill: none; stroke: var(--primary); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.bl-step { fill: var(--primary-soft); stroke: var(--primary); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.bl-st1 { font-size: 14px; font-weight: 700; fill: var(--ink); font-family: var(--font); }
+.bl-st2 { font-size: 11px; fill: var(--ink); font-family: var(--font); }
+.bl-ct { font-size: 11px; fill: var(--ink); font-family: var(--font); font-variant-numeric: tabular-nums; }
+.bl-track { fill: var(--chip); }
+.bl-fill { fill: var(--primary); }
+.bl-tab { fill: var(--chip); }
+.bl-tab.on { fill: var(--primary-soft); stroke: var(--primary); stroke-width: 1; }
+.bl-tabt { font-size: 10px; fill: var(--muted); font-family: var(--font); }
+.bl-tabt.on { fill: var(--ink); font-weight: 700; }
+.bl-cap { font-size: 11.5px; fill: var(--muted); font-family: var(--font); }
+.bl-title { font-size: 1.3em; font-weight: 700; color: var(--ink); margin-top: 4px; }
+.bl-act { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--primary-soft); color: var(--ink); font-weight: 600; text-align: left; line-height: 1.4; }
+.bl-act svg { flex: none; color: var(--primary); }
+
+/* ---- 结果卡片 ---- */
+.c-span .k-cards { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+.c-span .k-card-body { padding: 14px 16px 10px; }
+.c-span .k-card-meta { border-top: 1px solid var(--line); padding: 8px 16px 10px; }
+.bl-body { display: grid; gap: 12px; }
+.bl-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.bl-src { padding: 2px 10px; border-radius: 999px; font-weight: 700; }
+.bl-src.wx { background: var(--ok-soft); color: var(--ink); }
+.bl-src.ali { background: var(--primary-soft); color: var(--ink); }
+.bl-range { color: var(--muted); font-size: .92em; }
+.bl-count { margin-left: auto; color: var(--muted); white-space: nowrap; }
+.bl-count b { color: var(--ink); font-size: 1.1em; }
+.bl-money { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bl-money > div { display: grid; gap: 2px; padding: 8px 10px; border-radius: var(--radius); background: var(--chip); }
+.bl-money span { display: inline-flex; align-items: center; gap: 3px; color: var(--muted); font-size: .92em; }
+.bl-money b { font-size: 1.55em; font-weight: 800; line-height: 1.15; letter-spacing: -.01em; white-space: nowrap; }
+.bl-money .out b { color: var(--ink); }
+.bl-money .in b { color: var(--primary); }
+.bl-bars { display: flex; align-items: flex-end; gap: 3px; height: 44px; padding-top: 4px; }
+.bl-bars i { flex: 1; min-width: 3px; border-radius: 2px 2px 0 0; background: var(--primary); opacity: .75; transition: height .2s var(--ease); }
+.bl-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.bl-tags span { padding: 2px 10px; border-radius: 999px; font-size: .92em; }
+.bl-tags .warn { background: var(--warn-soft); color: var(--warn); }
+.bl-sub { color: var(--muted); }

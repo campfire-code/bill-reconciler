@@ -3,6 +3,8 @@ import { ReceiptText } from 'lucide-react';
 import type { BatchTool } from '../kit/types';
 import { baseName, fmtYuan, parseBill, parseRules, reconcile, summarize, type Txn } from './core';
 import { readGrid, writeReport } from './xlsx';
+import { Empty } from './Empty';
+import { ResultBody } from './Result';
 
 interface Data { source: string; txns: Txn[]; skipped: number }
 
@@ -16,6 +18,8 @@ const tool: BatchTool = {
   mode: 'batch',
   resultView: 'list',
   concurrency: 1,
+  Empty,
+  ResultBody,
   accept: { label: '账单', extensions: ['csv', 'xlsx'] },
   params: [
     { key: 'dedupe', label: '去掉重复记录', type: 'toggle', default: true, help: '多份账单的时间范围重叠时，同一笔交易只留一条（按来源、订单号、收支、金额判断）' },
